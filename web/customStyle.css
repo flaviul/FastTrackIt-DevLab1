@@ -1,0 +1,128 @@
+/*
+didactic purposes
+Some items are intentionally not optimized or not coded in the right way
+FastTrackIT 2015,
+version 1.0
+*/
+
+body {
+    background-color:white;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    line-height: 125%;
+    padding: 0;
+    margin: 0;
+}
+
+#sitebranding {
+    border-top: 5px solid white;
+}
+
+h1 {
+    font-size: large;
+    background-color: #fe001a;
+    color: white;
+    padding-top: 2em;
+    padding-bottom: .2em;
+    padding-left: .4em;
+    margin: 0;
+}
+
+#tagline p {
+    font-style: italic;
+    font-family: Georgia, Times, serif;
+    background-color: #fe001a;
+    color: white;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    padding-left: .8em;
+    margin: 0;
+}
+
+#header {
+    position: absolute;
+    border-top: 3px solid #7da5d8;
+    width: 100%;
+}
+
+#navigation {
+    position: absolute;
+    top: 110px;
+    width: 110px;
+    height: 180px;
+    background-color: #fe001a;
+    color:black;
+    padding-left: .8em;
+;
+}
+
+#bodycontent {
+    position: absolute;
+    left: 140px;
+    top: 120px;
+    padding-top:.4em;
+    padding-left:2em;
+}
+
+#postcontent {
+    position: absolute;
+    left: 360px;
+    top: 110px;
+    width: 120px;
+    height:180px;
+    background-color: #fe001a;
+    color:black;
+    padding-left: .8em;
+;
+}
+
+#postcontent a, #navigation a {
+    color: white;
+}
+
+#serverResponse {
+    color:red;
+    position: absolute;
+    top: 210px;
+    left: 140px;
+    width: 200px;
+    background-color: floralwhite;
+    color: blue;
+    padding-left: .8em;
+
+}
+
+.button {
+    background-color: #fe001a;
+    color: white;
+}
+
+#form label {
+    color: #fe001a;
+}
+
+#form input {
+    border: 1px solid #fe001a;
+}
+
+
+
+
+
+
+
+
+/* padding - between border and text -*/
+
+
+/* class selector*/
+.test {
+    color: #aa0044;
+}
+
+.highlight {
+    border-width: 10px;
+    border-style: inset;
+    border-color: #999999;
+}
