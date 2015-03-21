@@ -1,4 +1,4 @@
-package java.org.fasttrackit.dev.lesson1.numgenerator;
+package org.fasttrackit.dev.lesson1.numgenerator;
 
 import org.junit.Test;
 

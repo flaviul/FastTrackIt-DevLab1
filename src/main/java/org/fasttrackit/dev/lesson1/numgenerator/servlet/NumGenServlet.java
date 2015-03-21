@@ -102,4 +102,11 @@ public class NumGenServlet extends HttpServlet {
         pr.write(jsonResponse);
         pr.close();
     }
+
+    public void maximumNumber(HttpServletRequest request){
+        HttpSession session = request.getSession(true);
+        session.setAttribute("maxAllowed", NumGeneratorBusinessLogic.MAXNUMBER);
+    }
+
 }
+
