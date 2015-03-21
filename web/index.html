@@ -1,4 +1,3 @@
-
 <!-- didactic purposes
 
 Some items are intentionally not optimized or not coded in the right way
@@ -10,115 +9,141 @@ FastTrackIT 2015
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Our first Lab</title>
-      <meta charset="utf-8"/>
-      <link href="customStyle.css" rel="stylesheet" type="text/css"/>
+    <meta charset="utf-8"/>
+    <link id="css-loader" href="customStyle.css" rel="stylesheet" type="text/css"/>
 
     <script language="JavaScript">
 
-        function reset(){
-            document.getElementById("serverResponse").innerText="";
+        function createCssLink(href){
+            var newLink = document.createElement("link");
+            newLink.setAttribute("id", "css-loader");
+            newLink.setAttribute("rel", "stylesheet");
+            newLink.setAttribute("type", "text/css");
+            newLink.setAttribute("href", href);
+            return newLink;
+        }
+
+        function changeTheme() {
+            var oldCssLink = document.getElementById('css-loader');
+            var currentCss = oldCssLink.getAttribute("href");
+            if (currentCss == 'numguessstyle.css') {
+                var newLink = createCssLink('customStyle.css')
+                document.getElementsByTagName("head").item(0).replaceChild(newLink, oldCssLink);
+            }
+            else {
+                var newLink = createCssLink('numguessstyle.css')
+                document.getElementsByTagName("head").item(0).replaceChild(newLink, oldCssLink);
+            }
+        }
+
+        function reset() {
+            document.getElementById("serverResponse").innerText = "";
             xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange=callback;
-            var url ="NumGenServlet"+"?requestRestartGame=1";
-            xmlHttp.open("GET",url,true);
+            xmlHttp.onreadystatechange = callback;
+            var url = "NumGenServlet" + "?requestRestartGame=1";
+            xmlHttp.open("GET", url, true);
             xmlHttp.send();
         }
 
-         function guess(){
-             xmlHttp = new XMLHttpRequest();
-             xmlHttp.onreadystatechange=callback;
-             var url ="NumGenServlet"+"?requestGuessNumber="+document.getElementById("number").value;
-             xmlHttp.open("GET",url,true);
-             xmlHttp.send();
-         }
+        function guess() {
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = callback;
+            var url = "NumGenServlet" + "?requestGuessNumber=" + document.getElementById("number").value;
+            xmlHttp.open("GET", url, true);
+            xmlHttp.send();
+        }
 
         function guessLink(givenValue) {
             xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange=callback;
-            var url ="NumGenServlet"+"?requestGuessNumber="+givenValue;
-            xmlHttp.open("GET",url,true);
+            xmlHttp.onreadystatechange = callback;
+            var url = "NumGenServlet" + "?requestGuessNumber=" + givenValue;
+            xmlHttp.open("GET", url, true);
             xmlHttp.send();
         }
 
-         function callback() {
-             if(xmlHttp.readyState==4 && xmlHttp.status==200) {
-                 var jSonMessage = JSON.parse(xmlHttp.responseText);
-                 var keyRestartGame=jSonMessage.keyRestartGame;
-                 if (keyRestartGame != undefined && keyRestartGame.length > 0) {
-                     alert("Restart cu succes, jocul a reinceput!");
-                     document.getElementById("number").value="";
-                     return;
-                 }
+        function callback() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                var jSonMessage = JSON.parse(xmlHttp.responseText);
+                var keyRestartGame = jSonMessage.keyRestartGame;
+                if (keyRestartGame != undefined && keyRestartGame.length > 0) {
+                    alert("Restart cu succes, jocul a reinceput!");
+                    document.getElementById("number").value = "";
+                    return;
+                }
 
-                 var keyError = jSonMessage.keyError;
-                 if (keyError != undefined && keyError.length > 0) {
-                     alert("Trebuie sa introduceti un numar valid!");
-                     return;
-                 }
+                var keyError = jSonMessage.keyError;
+                if (keyError != undefined && keyError.length > 0) {
+                    alert("Trebuie sa introduceti un numar valid!");
+                    return;
+                }
                 var keySuccess = jSonMessage.keySuccess;
-                 var keyHint = jSonMessage.keyHint;
-                 var keyNrGuesses = jSonMessage.keyNrGuesses;
+                var keyHint = jSonMessage.keyHint;
+                var keyNrGuesses = jSonMessage.keyNrGuesses;
 
-                 if(keySuccess=="false") {
-                     if (keyHint == "higher")
-                         document.getElementById("serverResponse").innerHTML = "WRONG, Try a Higher one!";
-                     else if (keyHint == "lower")
-                         document.getElementById("serverResponse").innerHTML = "WRONG, Try a Lower one!";
-                 }
-                 else
-                 if(keySuccess=="true")
-                 {
-                     document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses.";
-                 }
-             }
-         }
+                if (keySuccess == "false") {
+                    if (keyHint == "higher")
+                        document.getElementById("serverResponse").innerHTML = "WRONG, Try a Higher one!";
+                    else if (keyHint == "lower")
+                        document.getElementById("serverResponse").innerHTML = "WRONG, Try a Lower one!";
+                }
+                else if (keySuccess == "true") {
+                    document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses.";
+                }
+            }
+        }
+
 
     </script>
 
-  </head>
+</head>
 
 
-  <body>
+<body>
 
 
-  <div id="header">
-      <div id="sitebranding">
-          <h1>FastTrackIT.org</h1>
-      </div>
-      <div id="tagline">
-          <p>Welcome to our first Lesson !</p>
-      </div>
-  </div>
-  <div id="navigation">
-     <a href="javascript:guessLink(1)">It could be 1</a></br>
-      <a href="javascript:guessLink(2)">It could be 2</a></br>
-      <a href="javascript:guessLink(3)">It could be 3</a></br>
-      <a href="javascript:guessLink(4)">It could be 4</a></br>
-      <a href="javascript:guessLink(5)">It could be 5</a></br>
-  </div>
-  <div id="bodycontent">
-      <div id="form">
-          <label for="number">Number:&nbsp;</label><input type="number" id="number" style="width:30px"/>
+<div id="header">
+    <div id="sitebranding">
+        <h1>FastTrackIT.org</h1>
+    </div>
+    <div id="tagline">
+        <p>Welcome to our first Lesson !</p>
+    </div>
+</div>
+<div id="navigation">
+    <a href="javascript:guessLink(1)">It could be 1</a></br>
+    <a href="javascript:guessLink(2)">It could be 2</a></br>
+    <a href="javascript:guessLink(3)">It could be 3</a></br>
+    <a href="javascript:guessLink(4)">It could be 4</a></br>
+    <a href="javascript:guessLink(5)">It could be 5</a></br>
+</div>
+<div id="bodycontent">
+    <div id="form">
+        <label for="number">Number:&nbsp;</label><input type="number" id="number" style="width:30px"/>
 
-          </br></br>
+        </br></br>
 
-          <input type="button" id="guessButton" class="button" value="Guess now" onClick="guess()"/>
-          <input type="button" id="resetButton" class="button" value="Reset Game" onClick="reset()"/>
-      </div>
+        <input type="button" id="guessButton" class="button" value="Guess now" onClick="guess()"/>
+        <input type="button" id="resetButton" class="button" value="Reset Game" onClick="reset()"/>
 
-  </div>
+        <div>
+            <input type="button" id="theme-picker" class="button" value="Change theme" onClick="changeTheme()"/>
+        </div>
+    </div>
 
-  <div id="serverResponse"></div>
+</div>
 
-  <div id="postcontent">
-      <a href="javascript:guessLink(6)">It could be 6</a></br>
-      <a href="javascript:guessLink(7)">It could be 7</a></br>
-      <a href="javascript:guessLink(8)">It could be 8</a></br>
-      <a href="javascript:guessLink(9)">It could be 9</a></br>
-      <a href="javascript:guessLink(10)">It could be 10</a></br>
-  </div>
+<div id="serverResponse"></div>
 
-  </body>
+<div id="postcontent">
+    <a href="javascript:guessLink(6)">It could be 6</a></br>
+    <a href="javascript:guessLink(7)">It could be 7</a></br>
+    <a href="javascript:guessLink(8)">It could be 8</a></br>
+    <a href="javascript:guessLink(9)">It could be 9</a></br>
+    <a href="javascript:guessLink(10)">It could be 10</a></br>
+</div>
+
+
+</body>
 </html>
