@@ -24,6 +24,23 @@ h1 {
     margin: 0;
 }
 
+/* this is the animation for the h1*/
+h1 {
+
+    background-color: #217eff;
+    -webkit-animation-name: example;
+    -webkit-animation-duration: 4s;
+
+}
+
+
+@-webkit-keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: green;}
+    50%  {background-color: yellow;}
+    100% {background-color: #ff185c;}
+}
+
 #tagline p {
     font-style: italic;
     font-family: Georgia, Times, serif;
@@ -36,6 +53,23 @@ h1 {
     margin: 0;
 }
 
+/* tagline animation*/
+
+#tagline p{
+
+    background-color: #20beff;
+    -webkit-animation-name: colours;
+    -webkit-animation-duration: 4s;
+
+}
+
+
+@-webkit-keyframes colours {
+    from {background-color: #d91a12;}
+    to {background-color: #38ff89;}
+}
+
+
 #header {
     position: absolute;
     border-top: 3px solid #7da5d8;
@@ -44,35 +78,68 @@ h1 {
 
 #navigation {
     position: absolute;
+    left: 250px;
     top: 110px;
-    width: 110px;
+    width: 130px;
     height: 180px;
-    background-color: navajowhite;
+    background-color: #ff2254;
     color:black;
     padding-left: .8em;
-;
+    margin: 5px;
+    border-radius: 20px;
 }
 
 #bodycontent {
     position: absolute;
-    left: 140px;
+    left: 530px;
     top: 120px;
     padding-top:.4em;
     padding-left:2em;
 }
+.bodycontent{
+    background-image: url("http://images5.fanpop.com/image/photos/28000000/Pepsi01-jess-oweys-fave-pepsi-picks-28003746-1920-1200.jpg");
+    background-size: 1400px 800px;
+    background-repeat: no-repeat;;
+}
 
 #postcontent {
     position: absolute;
-    left: 360px;
+    left: 900px;
     top: 110px;
-    width: 120px;
+    width: 130px;
     height:180px;
-    background-color: navajowhite;
+    background-color: #ffeb2f;
     color:black;
     padding-left: .8em;
+    margin: 5px;
+    border-radius: 20px;
 ;
 }
 
+
+#changeThemeButton {
+    position: absolute;
+    left: 70px;
+    padding-top: 10px;
+}
+
+#theme-picker{
+     background-color: #2464ff;
+}
+
+#guessButton{
+    background-color: #d92044;
+}
+
+#resetButton{
+    background-color: #00a800;
+}
+
+
+
+#postcontent a, #navigation a {
+    color: #3539a0;
+}
 #serverResponse {
     color:red;
     position: absolute;

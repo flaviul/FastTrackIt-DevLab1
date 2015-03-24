@@ -19,18 +19,56 @@ body {
 
 h1 {
     font-size: large;
-    background-color: #fe001a;
-    color: white;
+    background-color: #ffeedc;
+    color: #bf051d;
     padding-top: 2em;
     padding-bottom: .2em;
     padding-left: .4em;
     margin: 0;
 }
+/* h1 animation*/
+#sitebranding {
+    -webkit-animation-name: slidein;
+    -webkit-animation-duration: 1.5s;
+
+}
+
+@-webkit-keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+#tagline{
+    -webkit-animation-name: slideout;
+    -webkit-animation-duration: 1.5s;
+
+}
+
+@-webkit-keyframes slideout {
+    from {
+        margin-right: 300%;
+        width: 100%;
+    }
+
+    to {
+        margin-left: 200%;
+        width: 100%;
+    }
+}
+
+
 
 #tagline p {
     font-style: italic;
     font-family: Georgia, Times, serif;
-    background-color: #fe001a;
+    background-color: #bf051d;
     color: white;
     border-top: 5px solid white;
     border-bottom: 5px solid white;
@@ -48,41 +86,58 @@ h1 {
 
 #navigation {
     position: absolute;
+    left: 350px;
     top: 110px;
-    width: 110px;
+    width: 130px;
     height: 180px;
-    background-color: #fe001a;
+    background-color: #ca0409;
     color:black;
     padding-left: .8em;
+    margin: 5px;
+    border-radius: 20px;
 ;
 }
 
 #bodycontent {
     position: absolute;
-    left: 140px;
+    left: 530px;
     top: 120px;
+
     padding-top:.4em;
     padding-left:2em;
+}
+.bodycontent{
+    background-image: url("http://fc01.deviantart.net/fs71/i/2011/121/3/0/vintage_coca_cola_wallpaper_2_by_thhath-d3fclrk.jpg");
+    background-size: 1400px 700px;
+    background-repeat: no-repeat;;
 }
 
 #postcontent {
     position: absolute;
-    left: 360px;
+    left: 800px;
     top: 110px;
-    width: 120px;
+    width: 130px;
     height:180px;
-    background-color: #fe001a;
+    background-color: #ca0409;
     color:black;
     padding-left: .8em;
-;
+    margin: 5px;
+    border-radius: 20px;
+
+}
+#changeThemeButton{
+    position: absolute;
+    left: 70px;
+    padding-top: 20px;
 }
 
 #postcontent a, #navigation a {
-    color: white;
+    color: #cfc3ac;
+
 }
 
 #serverResponse {
-    color:red;
+    color:#ca0409;
     position: absolute;
     top: 210px;
     left: 140px;
@@ -94,20 +149,21 @@ h1 {
 }
 
 .button {
-    background-color: #fe001a;
-    color: white;
+    background-color: #ca0409;
+    color:  #cfc3ac;
+
 }
 
 #form label {
-    color: #fe001a;
+    color: #ca0409;
 }
 
 #form input {
-    border: 1px solid #fe001a;
+    border: 1px solid #ca0409;
 }
 
 #theme-picker button {
-    border: 1px solid #fe001a;
+    border: 1px solid #ca0409;
 }
 
 
