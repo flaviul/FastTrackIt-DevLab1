@@ -89,6 +89,22 @@ h1 {
     border-radius: 20px;
 }
 
+
+/*navigation animation*/
+#navigation{
+    background-color: #FF2254;
+    -webkit-animation-name: navigationColour;
+    -webkit-animation-duration: 4s;
+    animation-name: navigationColour;
+    animation-duration: 4s;
+}
+@-webkit-keyframes navigationColour{
+    0%   {background-color: green;}
+    25%  {background-color: blue;}
+    50%  {background-color: yellow;}
+    100% {background-color: red;}
+}
+
 #bodycontent {
     position: absolute;
     left: 530px;
@@ -113,8 +129,25 @@ h1 {
     padding-left: .8em;
     margin: 5px;
     border-radius: 20px;
-;
+
 }
+/*postcontent animation*/
+
+#postcontent  {
+    background-color: #FF2254;
+    -webkit-animation-name: postcontentColour;
+    -webkit-animation-duration: 4s;
+    animation-name: postcontentColour;
+    animation-duration: 4s;
+}
+
+@-webkit-keyframes postcontentColour{
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+}
+
 
 
 #changeThemeButton {
@@ -123,18 +156,51 @@ h1 {
     padding-top: 10px;
 }
 
+
+/*picker button animation*/
 #theme-picker{
-     background-color: #2464ff;
+    background-color: #2035ff;
+    -webkit-animation-name: pickerColour;
+    -webkit-animation-duration: 4s;
+    animation-name: pickerColour;
+    animation-duration: 4s;
+}
+@-webkit-keyframes pickerColour{
+    0%   {background-color: #804937;}
+25%  {background-color: #5be6ff;}
+50%  {background-color: #d92044;}
+100% {background-color: #fdff1d;}
 }
 
+/* guess button animation*/
 #guessButton{
-    background-color: #d92044;
+    background-color: #ff2c2f;
+    -webkit-animation-name: guessColour;
+    -webkit-animation-duration: 4s;
+    animation-name: guessColour;
+    animation-duration: 4s;
+}
+@-webkit-keyframes guessColour{
+    0%   {background-color: #801d30;}
+    25%  {background-color: #ffefa3;}
+    50%  {background-color: #6dff95;}
+    100% {background-color: #53e1ff;}
 }
 
+/*reset button animation*/
 #resetButton{
-    background-color: #00a800;
+    background-color: #FF2254;
+    -webkit-animation-name: navigationColour;
+    -webkit-animation-duration: 4s;
+    animation-name: navigationColour;
+    animation-duration: 4s;
 }
-
+@-webkit-keyframes navigationColour{
+    0%   {background-color: #7c8022;}
+    25%  {background-color: #85ffab;}
+    50%  {background-color: #94ff23;}
+    100% {background-color: #ff992f;}
+}
 
 
 #postcontent a, #navigation a {
