@@ -16,7 +16,7 @@ body {
 
 h1 {
     font-size: large;
-    background-color: cornflowerblue;
+    background-color: #324422;
     color: white;
     padding-top: 2em;
     padding-bottom: .2em;
@@ -24,29 +24,34 @@ h1 {
     margin: 0;
 }
 
-/* this is the animation for the h1*/
-h1 {
-
-    background-color: #217eff;
-    -webkit-animation-name: example;
-    -webkit-animation-duration: 4s;
-
+/*sitebranding animation*/
+#sitebranding{
+    -webkit-animation-name: tinRightIn;
+    -webkit-animation-duration: 1s;
 }
+@-webkit-keyframes tinRightIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1, 1) translateX(900%);
+    }
 
+    50%, 70%, 90% {
+        opacity: 1;
+        -webkit-transform: scale(1.1, 1.1) translateX(0);
+    }
 
-@-webkit-keyframes example {
-    0%   {background-color: red;}
-    25%  {background-color: green;}
-    50%  {background-color: yellow;}
-    100% {background-color: #ff185c;}
+    60%, 80%, 100% {
+        opacity: 1;
+        -webkit-transform: scale(1, 1) translateX(0);
+    }
 }
 
 #tagline p {
     font-style: italic;
     font-family: Georgia, Times, serif;
-    background-color: #bed8f3;
-    border-top: 3px solid #7da5d8;
-    border-bottom: 3px solid #7da5d8;
+    background-color: #6e2207;
+    border-top: 3px solid #242826;
+    border-bottom: 3px solid #242826;
     padding-top: .2em;
     padding-bottom: .2em;
     padding-left: .8em;
@@ -56,23 +61,30 @@ h1 {
 /* tagline animation*/
 
 #tagline p{
+  -webkit-animation-name: puffIn;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 1s;
+ }
+ @-webkit-keyframes puffIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: scale(2,2);
+    -webkit-filter: blur(2px);
+  }
 
-    background-color: #20beff;
-    -webkit-animation-name: colours;
-    -webkit-animation-duration: 4s;
-
-}
-
-
-@-webkit-keyframes colours {
-    from {background-color: #d91a12;}
-    to {background-color: #38ff89;}
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: scale(1,1);
+    -webkit-filter: blur(0px);
+  }
 }
 
 
 #header {
     position: absolute;
-    border-top: 3px solid #7da5d8;
+    border-top: 3px solid #242826;
     width: 100%;
 }
 
@@ -92,17 +104,26 @@ h1 {
 
 /*navigation animation*/
 #navigation{
-    background-color: #FF2254;
-    -webkit-animation-name: navigationColour;
-    -webkit-animation-duration: 4s;
-    animation-name: navigationColour;
-    animation-duration: 4s;
+    background-color: #324422;
+    -webkit-animation-name: vanishIn;
+    -webkit-animation-duration: 1.1s;
+
+
 }
-@-webkit-keyframes navigationColour{
-    0%   {background-color: green;}
-    25%  {background-color: blue;}
-    50%  {background-color: yellow;}
-    100% {background-color: red;}
+@-webkit-keyframes vanishIn {
+    0% {
+        opacity: 0;
+        transform-origin: 50% 50%;
+        transform: scale(2, 2);
+        -webkit-filter: blur(90px);
+    }
+
+    100% {
+        opacity: 1;
+        transform-origin: 50% 50%;
+        transform: scale(1, 1);
+        -webkit-filter: blur(0px);
+    }
 }
 
 #bodycontent {
@@ -113,8 +134,8 @@ h1 {
     padding-left:2em;
 }
 .bodycontent{
-    background-image: url("http://images5.fanpop.com/image/photos/28000000/Pepsi01-jess-oweys-fave-pepsi-picks-28003746-1920-1200.jpg");
-    background-size: 1400px 800px;
+    background-image: url("../images/background.jpg");
+    background-size: 1370px 630px;
     background-repeat: no-repeat;;
 }
 
@@ -124,7 +145,6 @@ h1 {
     top: 110px;
     width: 130px;
     height:180px;
-    background-color: #ffeb2f;
     color:black;
     padding-left: .8em;
     margin: 5px;
@@ -134,18 +154,26 @@ h1 {
 /*postcontent animation*/
 
 #postcontent  {
-    background-color: #FF2254;
-    -webkit-animation-name: postcontentColour;
-    -webkit-animation-duration: 4s;
-    animation-name: postcontentColour;
-    animation-duration: 4s;
-}
+    background-color: #324422;
+    -webkit-animation-name: vanishIn;
+    -webkit-animation-duration: 1.1s;
 
-@-webkit-keyframes postcontentColour{
-    0%   {background-color: red;}
-    25%  {background-color: yellow;}
-    50%  {background-color: blue;}
-    100% {background-color: green;}
+
+}
+@-webkit-keyframes vanishIn {
+    0% {
+        opacity: 0;
+        transform-origin: 50% 50%;
+        transform: scale(2, 2);
+        -webkit-filter: blur(90px);
+    }
+
+    100% {
+        opacity: 1;
+        transform-origin: 50% 50%;
+        transform: scale(1, 1);
+        -webkit-filter: blur(0px);
+    }
 }
 
 
@@ -154,77 +182,35 @@ h1 {
     position: absolute;
     left: 70px;
     padding-top: 10px;
+
 }
-
-
-/*picker button animation*/
 #theme-picker{
-    background-color: #2035ff;
-    -webkit-animation-name: pickerColour;
-    -webkit-animation-duration: 4s;
-    animation-name: pickerColour;
-    animation-duration: 4s;
-}
-@-webkit-keyframes pickerColour{
-    0%   {background-color: #804937;}
-25%  {background-color: #5be6ff;}
-50%  {background-color: #d92044;}
-100% {background-color: #fdff1d;}
+    background-color:  #646366;
 }
 
-/* guess button animation*/
 #guessButton{
-    background-color: #ff2c2f;
-    -webkit-animation-name: guessColour;
-    -webkit-animation-duration: 4s;
-    animation-name: guessColour;
-    animation-duration: 4s;
-}
-@-webkit-keyframes guessColour{
-    0%   {background-color: #801d30;}
-    25%  {background-color: #ffefa3;}
-    50%  {background-color: #6dff95;}
-    100% {background-color: #53e1ff;}
+    background-color:  #646366;
+
 }
 
-/*reset button animation*/
 #resetButton{
-    background-color: #FF2254;
-    -webkit-animation-name: navigationColour;
-    -webkit-animation-duration: 4s;
-    animation-name: navigationColour;
-    animation-duration: 4s;
-}
-@-webkit-keyframes navigationColour{
-    0%   {background-color: #7c8022;}
-    25%  {background-color: #85ffab;}
-    50%  {background-color: #94ff23;}
-    100% {background-color: #ff992f;}
+    background-color:  #646366;
 }
 
 
 #postcontent a, #navigation a {
-    color: #3539a0;
+    color: #838285;
 }
 #serverResponse {
-    color:red;
+    color: black;
     position: absolute;
-    top: 210px;
-    left: 140px;
+    top: 250px;
+    left: 555px;
     width: 200px;
-    background-color: floralwhite;
-    color: blue;
     padding-left: .8em;
-
+    background-color: #646366;
+    text-align: center;
 }
-
-
-
-
-
-
-
-
 
 
 

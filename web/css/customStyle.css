@@ -28,23 +28,23 @@ h1 {
 }
 /* h1 animation*/
 #sitebranding {
-    -webkit-animation-name: slidein;
+    -webkit-animation-name: holeOut;
     -webkit-animation-duration: 1.5s;
-
 }
 
-@-webkit-keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
+@-webkit-keyframes holeOut {
+    0% {
+        opacity: 1;
+        -webkit-transform-origin: 50% 50%;
+        -webkit-transform: scale(1, 1) rotateY(0deg);
     }
 
-    to {
-        margin-left: 0%;
-        width: 100%;
+    100% {
+        opacity: 0;
+        -webkit-transform-origin: 50% 50%;
+        -webkit-transform: scale(0, 0) rotateY(180deg);
     }
 }
-
 /* tagline animation*/
 
 #tagline{
@@ -218,13 +218,13 @@ h1 {
 #serverResponse {
     color:#ca0409;
     position: absolute;
-    top: 210px;
-    left: 140px;
+    top: 250px;
+    left:545px;
     width: 200px;
-    background-color: floralwhite;
-    color: blue;
+    background-color: #CA0409;
+    color:#cfc3ac;
     padding-left: .8em;
-
+    text-align: center;
 }
 
 .button {
