@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="NumGuess:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="NumGuess-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="NumGuess:war exploded" />
+    </root>
+  </artifact>
+</component>
