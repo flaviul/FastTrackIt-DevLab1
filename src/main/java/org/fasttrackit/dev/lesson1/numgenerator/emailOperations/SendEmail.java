@@ -12,6 +12,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 public class SendEmail {
 
+//    public static void main(String args[]){
+//        sendEmail("You won!", "Congratulations! \nYou guessed the right number.", "echipadragon@gmail.com");
+//
+//    }
+
     public static void sendEmail(String subject, String content, String recipient) {
         final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
         // Get a Properties object
