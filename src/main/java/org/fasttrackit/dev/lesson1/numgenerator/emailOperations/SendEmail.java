@@ -50,6 +50,7 @@ public class SendEmail {
             msg.setSubject(subject);
             msg.setText(content);
             msg.setSentDate(new Date());
+
             Transport.send(msg);
             System.out.println("Message sent.");
         } catch (MessagingException e) {

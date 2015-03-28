@@ -62,7 +62,8 @@ public class NumGeneratorBusinessLogic {
         if (guessNumber == generatedNumber) {
             hint="";
             successfulGuess = true;
-            SendEmail.sendEmail("You won!", "Congratulations! \nYou guessed the right number.", "echipadragon@gmail.com");
+
+            SendEmail.sendEmail("You won!", "Congratulations! \nYou guessed the right number after "+getNumGuesses()+" guesses!" , "echipadragon@gmail.com");
         } else if (guessNumber < generatedNumber) {
             hint = "higher";
             successfulGuess = false;
