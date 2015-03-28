@@ -1,3 +1,9 @@
+
+(function(){
+    window.onload =generateLinks();
+})();
+
+
 function createCssLink(href) {
     var newLink = document.createElement("link");
     newLink.setAttribute("id", "css-loader");
@@ -45,18 +51,6 @@ function guessLink(givenValue) {
     xmlHttp.send();
 }
 
-(function () {
-    function useLinkValue(guessLink) {
-        guessLink.onclick = function () {
-            document.getElementById("number").value = guessLink.name;
-        };
-    }
-
-    var links = document.getElementsByClassName("guess-link");
-    for (var i = 0; i < links.length; i++) {
-        useLinkValue(links[i]);
-    }
-})();
 
 
 function callback() {
@@ -127,7 +121,17 @@ function generateLinks() {
     }
 }
 
-(function(){
-    window.onload =generateLinks();
+
+(function() {
+    function useLinkValue(guessLink) {
+        guessLink.onclick = function () {
+            document.getElementById("number").value = guessLink.name;
+        };
+    }
+
+    var links = document.getElementsByClassName("guess-link");
+    for (var i = 0; i < links.length; i++) {
+        useLinkValue(links[i]);
+    }
 })();
 
