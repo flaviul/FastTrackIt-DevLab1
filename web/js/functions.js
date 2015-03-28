@@ -24,6 +24,8 @@ function changeTheme() {
         var newLink = createCssLink('css/numguessstyle.css')
         document.getElementsByTagName("head").item(0).replaceChild(newLink, oldCssLink);
     }
+
+
 }
 
 function reset() {

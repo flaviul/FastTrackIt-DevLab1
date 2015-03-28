@@ -64,7 +64,8 @@ public class NumGeneratorBusinessLogic {
             successfulGuess = true;
 
             // Starting a new thread to send the confirmation email in parallel
-            SendEmail sendEmail = new SendEmail("You won!", "Congratulations! \nYou guessed the right number after " + getNumGuesses() + " guesses!" , "echipadragon@gmail.com");
+            SendEmail sendEmail = new SendEmail("You won!", "Congratulations! \nYou guessed the right number after " +
+                    getNumGuesses() + " guesses!" , "echipadragon@gmail.com");
             Thread thread = new Thread(sendEmail);
             thread.start();
 
