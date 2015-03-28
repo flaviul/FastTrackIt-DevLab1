@@ -51,6 +51,7 @@ function guessLink(givenValue) {
             document.getElementById("number").value = guessLink.name;
         };
     }
+
     var links = document.getElementsByClassName("guess-link");
     for (var i = 0; i < links.length; i++) {
         useLinkValue(links[i]);
@@ -88,3 +89,45 @@ function callback() {
         }
     }
 }
+
+function clearNodeContent(node) {
+    while (node.hasChildNodes()) {
+        node.removeChild(node.firstChild);
+    }
+}
+
+function generateLinks() {
+    var navigationBlock = document.getElementById("navigation");
+    var postcontentBlock = document.getElementById('postcontent');
+
+    clearNodeContent(navigationBlock);
+    clearNodeContent(postcontentBlock);
+
+
+    function appendLink(parent, number){
+        var lineBreak = document.createElement('br');
+        var guessLink = document.createElement('a');
+        guessLink.text = 'It could be ' + number;
+        guessLink.href = 'javascript:guessLink(' + number + ')';
+        guessLink.className = 'guess-link';
+        guessLink.name = number;
+        parent.appendChild(guessLink);
+        parent.appendChild(lineBreak);
+    }
+
+    var maxNumber = document.getElementById("maxNumber").value;
+    var median = Math.ceil(maxNumber / 2);
+
+    for (var i = 1; i <= median; i++){
+        appendLink(navigationBlock, i);
+    }
+
+    for (var j = median + 1; j <= maxNumber; j++){
+        appendLink(postcontentBlock, j);
+    }
+}
+
+(function(){
+    window.onload =generateLinks();
+})();
+

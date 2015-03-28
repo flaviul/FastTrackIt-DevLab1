@@ -101,7 +101,8 @@ h1 {
     left: 350px;
     top: 110px;
     width: 130px;
-    height: 180px;
+    height: auto;
+    overflow: auto;
     background-color: #ca0409;
     color:black;
     padding-left: .8em;
@@ -161,7 +162,8 @@ h1 {
     left: 800px;
     top: 110px;
     width: 130px;
-    height:180px;
+    height: auto;
+    overflow: auto;
     background-color: #ca0409;
     color:black;
     padding-left: .8em;
@@ -228,10 +230,22 @@ h1 {
 }
 
 .button {
-    background-color: #ca0409;
+    background-color: #646366;
     color:  #cfc3ac;
 
 }
+
+#applyButton {
+    position: absolute;
+    left: 96px;
+    padding-top: 10px;
+
+}
+
+#configuration {
+    margin-top: 50px;
+}
+
 
 #form label {
     color: #ca0409;
