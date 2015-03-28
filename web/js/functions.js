@@ -58,14 +58,14 @@ function callback() {
         var jSonMessage = JSON.parse(xmlHttp.responseText);
         var keyRestartGame = jSonMessage.keyRestartGame;
         if (keyRestartGame != undefined && keyRestartGame.length > 0) {
-            alert("Restart cu succes, jocul a reinceput!");
+            alert("The game has been successfully restarted.");
             document.getElementById("number").value = "";
             return;
         }
 
         var keyError = jSonMessage.keyError;
         if (keyError != undefined && keyError.length > 0) {
-            alert("Trebuie sa introduceti un numar valid!");
+            alert("Please enter a valid number!");
             return;
         }
         var keySuccess = jSonMessage.keySuccess;
