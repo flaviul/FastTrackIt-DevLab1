@@ -300,10 +300,12 @@ h1 {
 
 #applyButton{
     position: absolute;
-    left: 50px;
+    left:15px;
     top: 100px;
+    height: 20px;
+    padding-top: 0px;
+    width: 100px;
 }
-
 
 /* padding - between border and text -*/
 
