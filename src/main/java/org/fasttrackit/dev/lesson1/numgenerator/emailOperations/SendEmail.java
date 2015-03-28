@@ -10,14 +10,19 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-public class SendEmail {
+public class SendEmail implements Runnable{
 
-//    public static void main(String args[]){
-//        sendEmail("You won!", "Congratulations! \nYou guessed the right number.", "echipadragon@gmail.com");
-//
-//    }
+    private String emailSubject;
+    private String emailContent;
+    private String emailRecipient;
 
-    public static void sendEmail(String subject, String content, String recipient) {
+    public SendEmail(String subject, String content, String recipient) {
+        emailSubject = subject;
+        emailContent = content;
+        emailRecipient = recipient;
+    }
+
+    public void run(){
         final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
         // Get a Properties object
         Properties props = System.getProperties();
@@ -46,9 +51,9 @@ public class SendEmail {
             // -- Set the FROM and TO fields --
             msg.setFrom(new InternetAddress("echipadragon@gmail.com"));
             msg.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(recipient, false));
-            msg.setSubject(subject);
-            msg.setText(content);
+                    InternetAddress.parse(emailRecipient, false));
+            msg.setSubject(emailSubject);
+            msg.setText(emailContent);
             msg.setSentDate(new Date());
 
             Transport.send(msg);
@@ -57,4 +62,6 @@ public class SendEmail {
             System.out.println("Sending error, cause: " + e);
         }
     }
+
+
 }
