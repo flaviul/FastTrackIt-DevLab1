@@ -1,6 +1,6 @@
 package main.java.emailOperations;
 
-import javax.jms.Session;
+import javax.mail.Session;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Transport;
