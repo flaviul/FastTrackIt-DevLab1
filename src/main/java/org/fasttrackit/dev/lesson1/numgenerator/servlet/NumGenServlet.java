@@ -1,5 +1,6 @@
 package org.fasttrackit.dev.lesson1.numgenerator.servlet;
 
+import org.fasttrackit.dev.lesson1.numgenerator.emailOperations.SendEmail;
 import org.fasttrackit.dev.lesson1.numgenerator.NumGeneratorBusinessLogic;
 
 import javax.servlet.http.HttpServlet;
@@ -79,7 +80,6 @@ public class NumGenServlet extends HttpServlet {
                 String hint = nbl.getHint();
                 int nrGuesses = nbl.getNumGuesses();
                 jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint + "\", \"keyNrGuesses\":\"" + nrGuesses + "\"}";
-
             } else {
                 jsonResponse = "{\"keyError\":\"WRONGNUMBERFORMAT\"}";
             }

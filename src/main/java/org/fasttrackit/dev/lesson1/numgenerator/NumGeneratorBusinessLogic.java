@@ -1,5 +1,7 @@
 package org.fasttrackit.dev.lesson1.numgenerator;
 
+import org.fasttrackit.dev.lesson1.numgenerator.emailOperations.SendEmail;
+
 /**
  * Created by condor on 29/11/14.
  * FastTrackIT, 2015
@@ -60,6 +62,7 @@ public class NumGeneratorBusinessLogic {
         if (guessNumber == generatedNumber) {
             hint="";
             successfulGuess = true;
+            SendEmail.sendEmail("You won!", "Congratulations! \nYou guessed the right number.", "echipadragon@gmail.com");
         } else if (guessNumber < generatedNumber) {
             hint = "higher";
             successfulGuess = false;
