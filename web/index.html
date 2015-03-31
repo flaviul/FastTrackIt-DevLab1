@@ -41,11 +41,12 @@ FastTrackIT 2015
         <input type="button" id="resetButton" class="button" value="Reset Game" onClick="reset()"/>
 
         <div id="changeThemeButton" >
-            <input type="button" id="theme-picker" class="button" value="Change theme" onClick="changeTheme()"/>
-            <select id="theme-select">
-                <option id="default-theme">Default Theme</option>
-                <option id="coca-cola-theme">Coca-Cola Theme</option>
-                <option id="pepsi-theme">Pepsi Theme</option>
+            <!--<input type="button" id="theme-picker" class="button" value="Change theme" onClick="changeTheme()"/>-->
+            <label for="theme-select">Change theme:&nbsp;</label>
+            <select id="theme-select" onchange="selectTheme()">
+                <option>Default Theme</option>
+                <option>Coca-Cola Theme</option>
+                <option>Pepsi Theme</option>
             </select>
         </div>
 

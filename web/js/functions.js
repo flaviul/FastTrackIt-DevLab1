@@ -1,4 +1,3 @@
-
 (function(){
     window.onload =generateLinks();
 })();
@@ -17,15 +16,30 @@ function changeTheme() {
     var oldCssLink = document.getElementById('css-loader');
     var currentCss = oldCssLink.getAttribute("href");
     if (currentCss == 'css/numguessstyle.css') {
-        var newLink = createCssLink('css/customStyle.css')
+        var newLink = createCssLink('css/customStyle.css');
         document.getElementsByTagName("head").item(0).replaceChild(newLink, oldCssLink);
     }
     else {
-        var newLink = createCssLink('css/numguessstyle.css')
+        var newLink = createCssLink('css/numguessstyle.css');
         document.getElementsByTagName("head").item(0).replaceChild(newLink, oldCssLink);
     }
+}
 
-
+function selectTheme(){
+    var oldCssLink = document.getElementById('css-loader');
+    var selectedTheme = document.getElementById('theme-select').value;
+    switch (selectedTheme) {
+        case 'Default Theme':
+            var newLink = createCssLink('css/numguessstyle.css');
+            break;
+        case 'Coca-Cola Theme':
+            var newLink = createCssLink('css/customStyle.css');
+            break;
+        case 'Pepsi Theme':
+            var newLink = createCssLink('css/pepsiTheme.css');
+            break;
+    }
+    document.getElementsByTagName("head").item(0).replaceChild(newLink, oldCssLink);
 }
 
 function reset() {
