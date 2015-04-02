@@ -100,6 +100,7 @@ public class NumGenServlet extends HttpServlet {
                             ", \"keyMaxAllowed\":" + NumGeneratorBusinessLogic.MAX_ALLOWED_NUMBER + "}";
                 } else {
                     jsonResponse = "{\"keyMaxNumber\":" + requestMaxNumber + "}";
+                    nbl.setMaxNumber(requestMaxNumber);
                 }
             }
 
