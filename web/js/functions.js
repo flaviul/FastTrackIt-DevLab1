@@ -106,41 +106,7 @@ function callback() {
             document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses.";
         }
 
-        var maxNumber = document.getElementById("maxNumber").value;
-        var keyMaxNumberError = jSonMessage.keyMaxNumberError;
-        if (keyMaxNumberError !== undefined && keyMaxNumberError.length > 0) {
-            var keyMinAllowed = jSonMessage.keyMinAllowed;
-            var keyMaxAllowed = jSonMessage.keyMaxAllowed;
-            alert("Please enter an integer number between " + keyMinAllowed + " and " + keyMaxAllowed + ".");
-            return;
-        }
-        var navigationBlock = document.getElementById("navigation");
-        var postcontentBlock = document.getElementById('postcontent');
-
-        clearNodeContent(navigationBlock);
-        clearNodeContent(postcontentBlock);
-
-
-        function appendLink(parent, number) {
-            var lineBreak = document.createElement('br');
-            var guessLink = document.createElement('a');
-            guessLink.text = 'It could be ' + number;
-            guessLink.href = 'javascript:guessLink(' + number + ')';
-            guessLink.className = 'guess-link';
-            guessLink.name = number;
-            parent.appendChild(guessLink);
-            parent.appendChild(lineBreak);
-        }
-
-        var median = Math.ceil(maxNumber / 2);
-
-        for (var i = 1; i <= median; i++) {
-            appendLink(navigationBlock, i);
-        }
-
-        for (var j = median + 1; j <= maxNumber; j++) {
-            appendLink(postcontentBlock, j);
-        }
+        generateLinks(jSonMessage);
     }
 }
 
@@ -150,46 +116,43 @@ function clearNodeContent(node) {
     }
 }
 
-//function generateLinks() {
-//    var maxNumber = document.getElementById("maxNumber").value;
-//    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-//        var jSonMessage = JSON.parse(xmlHttp.responseText);
-//        var keyMaxNumberError = jSonMessage.keyMaxNumberError;
-//        if (keyMaxNumberError !== undefined && keyMaxNumberError.length > 0) {
-//            var keyMinAllowed = jSonMessage.keyMinAllowed;
-//            var keyMaxAllowed = jSonMessage.keyMaxAllowed;
-//            alert("Please enter an integer number between " + keyMinAllowed + " and " + keyMaxAllowed + ".");
-//            return;
-//        }
-//    }
-//        var navigationBlock = document.getElementById("navigation");
-//        var postcontentBlock = document.getElementById('postcontent');
-//
-//        clearNodeContent(navigationBlock);
-//        clearNodeContent(postcontentBlock);
-//
-//
-//        function appendLink(parent, number) {
-//            var lineBreak = document.createElement('br');
-//            var guessLink = document.createElement('a');
-//            guessLink.text = 'It could be ' + number;
-//            guessLink.href = 'javascript:guessLink(' + number + ')';
-//            guessLink.className = 'guess-link';
-//            guessLink.name = number;
-//            parent.appendChild(guessLink);
-//            parent.appendChild(lineBreak);
-//        }
-//
-//        var median = Math.ceil(maxNumber / 2);
-//
-//        for (var i = 1; i <= median; i++) {
-//            appendLink(navigationBlock, i);
-//        }
-//
-//        for (var j = median + 1; j <= maxNumber; j++) {
-//            appendLink(postcontentBlock, j);
-//        }
-//}
+function generateLinks(jSonMessage) {
+    var maxNumber = document.getElementById("maxNumber").value;
+    var keyMaxNumberError = jSonMessage.keyMaxNumberError;
+    if (keyMaxNumberError !== undefined && keyMaxNumberError.length > 0) {
+        var keyMinAllowed = jSonMessage.keyMinAllowed;
+        var keyMaxAllowed = jSonMessage.keyMaxAllowed;
+        alert("Please enter an integer number between " + keyMinAllowed + " and " + keyMaxAllowed + ".");
+        return;
+    }
+    var navigationBlock = document.getElementById("navigation");
+    var postcontentBlock = document.getElementById('postcontent');
+
+    clearNodeContent(navigationBlock);
+    clearNodeContent(postcontentBlock);
+
+
+    function appendLink(parent, number) {
+        var lineBreak = document.createElement('br');
+        var guessLink = document.createElement('a');
+        guessLink.text = 'It could be ' + number;
+        guessLink.href = 'javascript:guessLink(' + number + ')';
+        guessLink.className = 'guess-link';
+        guessLink.name = number;
+        parent.appendChild(guessLink);
+        parent.appendChild(lineBreak);
+    }
+
+    var median = Math.ceil(maxNumber / 2);
+
+    for (var i = 1; i <= median; i++) {
+        appendLink(navigationBlock, i);
+    }
+
+    for (var j = median + 1; j <= maxNumber; j++) {
+        appendLink(postcontentBlock, j);
+    }
+}
 
 
 (function () {
