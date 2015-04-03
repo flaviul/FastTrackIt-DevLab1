@@ -1,0 +1,155 @@
+/*
+didactic purposes
+Some items are intentionally not optimized or not coded in the right way
+FastTrackIT 2015,
+version 1.0
+*/
+
+body {
+    background-color:floralwhite;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    line-height: 125%;
+    padding: 0;
+    margin: 0;
+}
+
+
+h1 {
+    font-size: large;
+    background-color: #324422;
+    color: white;
+    padding-top: 2em;
+    padding-bottom: .2em;
+    padding-left: .4em;
+    margin: 0;
+    background-color: #2f83ff;
+}
+
+
+#tagline p {
+    font-style: italic;
+    font-family: Georgia, Times, serif;
+    background-color: #10dafb;
+    border-top: 3px solid #242826;
+    border-bottom: 3px solid #242826;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    padding-left: .8em;
+    margin: 0;
+}
+
+
+#header {
+    position: absolute;
+    border-top: 3px solid #242826;
+    width: 100%;
+}
+
+#navigation {
+    position: absolute;
+    left: 250px;
+    top: 110px;
+    width: 130px;
+    height: 180px;
+    background-color: #bc1036;
+    color:black;
+    padding-left: .8em;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+
+
+
+#bodycontent {
+    position: absolute;
+    left: 530px;
+    top: 120px;
+    padding-top:.4em;
+    padding-left:2em;
+}
+.bodycontent{
+    background-image: url("../images/pepsi.jpg");
+    background-size: 1370px 800px;
+    background-repeat: no-repeat;;
+}
+
+#postcontent {
+    position: absolute;
+    left: 900px;
+    top: 110px;
+    width: 130px;
+    height:180px;
+    color: #f4d90e;
+    padding-left: .8em;
+    margin: 5px;
+    border-radius: 20px;
+    background-color: #F4D90E;
+
+}
+
+#changeThemeButton {
+    position: absolute;
+    left: 70px;
+    padding-top: 10px;
+
+}
+#theme-picker{
+    background-color: #da3014;
+}
+
+#guessButton{
+    background-color: #24991b;
+
+}
+
+#resetButton{
+    background-color: #e1d821;
+
+}
+
+
+#postcontent a, #navigation a {
+    color: #838285;
+}
+#serverResponse {
+    color: black;
+    position: absolute;
+    top: 250px;
+    left: 555px;
+    width: 200px;
+    padding-left: .8em;
+    background-color: #646366;
+    text-align: center;
+}
+
+#configuration{
+    position: absolute;
+    left: 60px;
+    top: 150px;
+    text-align: center;
+}
+
+#applyButton{
+    position: absolute;
+    left: 50px;
+    top: 100px;
+}
+
+/* padding - between border and text -*/
+
+
+/* class selector*/
+.test {
+    color: #aa0044;
+}
+
+.highlight {
+    border-width: 10px;
+    border-style: inset;
+    border-color: #999999;
+}
+
+#form{
+    color: #ff8c25;
+}
