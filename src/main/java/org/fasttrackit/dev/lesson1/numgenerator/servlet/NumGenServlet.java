@@ -30,6 +30,7 @@ public class NumGenServlet extends HttpServlet {
     private static final String SESSION_KEY_RESTART = "_sessionKey_restart";
     private static final String SESSION_KEY_NUMBER_GENERATOR_BUSINESS_LOGIC = "_sessionKey_NumberGeneratorBusinessLogic";
     private static final String VALUE_INIT = "1";
+    private static final String REQUEST_PARAM_MAX_NUMBER = "requestMaxNumber";
 
     //json
 
@@ -66,21 +67,41 @@ public class NumGenServlet extends HttpServlet {
         } else {
 
             String requestGuessNumber = request.getParameter(REQUEST_PARAM_GUESSNUMBER);
-            int iGuessNumber = 0;
-            boolean isANumber = true;
-            try {
-                iGuessNumber = Integer.parseInt(requestGuessNumber);
-            } catch (NumberFormatException e) {
-                isANumber = false;
-            }
 
-            if (isANumber) {
-                boolean success = nbl.determineGuess(iGuessNumber);
-                String hint = nbl.getHint();
-                int nrGuesses = nbl.getNumGuesses();
-                jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint + "\", \"keyNrGuesses\":\"" + nrGuesses + "\"}";
-            } else {
-                jsonResponse = "{\"keyError\":\"WRONGNUMBERFORMAT\"}";
+            if (requestGuessNumber != null ) {
+                int iGuessNumber = 0;
+                boolean isANumber = true;
+                try {
+                    iGuessNumber = Integer.parseInt(requestGuessNumber);
+                } catch (NumberFormatException e) {
+                    isANumber = false;
+                }
+
+                if (isANumber) {
+                    boolean success = nbl.determineGuess(iGuessNumber);
+                    String hint = nbl.getHint();
+                    int nrGuesses = nbl.getNumGuesses();
+                    jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint + "\", \"keyNrGuesses\":\"" + nrGuesses + "\"}";
+                } else {
+                    jsonResponse = "{\"keyError\":\"WRONGNUMBERFORMAT\"}";
+                }
+            }
+            else {
+
+
+                int requestMaxNumber = NumGeneratorBusinessLogic.DEFAULT_ALLOWED_NUMBER;
+                String requestMaxNumberText = request.getParameter(REQUEST_PARAM_MAX_NUMBER);
+                if (requestMaxNumberText != null) {
+                    requestMaxNumber = Integer.parseInt(requestMaxNumberText);
+                }
+
+                if (requestMaxNumber < NumGeneratorBusinessLogic.MIN_ALLOWED_NUMBER || requestMaxNumber > NumGeneratorBusinessLogic.MAX_ALLOWED_NUMBER) {
+                    jsonResponse = "{\"keyMaxNumberError\":\"WRONG_NUMBER_RANGE\", \"keyMinAllowed\":" + NumGeneratorBusinessLogic.MIN_ALLOWED_NUMBER +
+                            ", \"keyMaxAllowed\":" + NumGeneratorBusinessLogic.MAX_ALLOWED_NUMBER + "}";
+                } else {
+                    jsonResponse = "{\"keyMaxNumber\":" + requestMaxNumber + "}";
+                    nbl.setMaxNumber(requestMaxNumber);
+                }
             }
 
             returnJsonResponse(response, jsonResponse);

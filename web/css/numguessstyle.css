@@ -136,7 +136,7 @@ h1 {
 }
 .bodycontent{
     background-image: url("../images/background.jpg");
-    background-size: 1370px 630px;
+    background-size: 100%;
     background-repeat: no-repeat;;
 }
 
