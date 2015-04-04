@@ -18,13 +18,24 @@ FastTrackIT 2015
 
 public class NumGeneratorBusinessLogic {
 
-    public static final int MAXNUMBER = 5;
+    public static final int MIN_ALLOWED_NUMBER = 2;
+    public static final int MAX_ALLOWED_NUMBER = 40;
+    public static final int DEFAULT_ALLOWED_NUMBER = 20;
 
     private boolean isFirstTime = true;
     private boolean successfulGuess;
     private int numberOfGuesses;
     private int generatedNumber;
+    private int maxNumber = DEFAULT_ALLOWED_NUMBER;
     private String hint;
+
+    public int getMaxNumber() {
+        return maxNumber;
+    }
+
+    public void setMaxNumber(int maxNumber) {
+        this.maxNumber = maxNumber;
+    }
 
     public NumGeneratorBusinessLogic(){
         resetNumberGenerator();
@@ -54,7 +65,7 @@ public class NumGeneratorBusinessLogic {
 
     public boolean determineGuess(int guessNumber){
         if (isFirstTime) {
-            generatedNumber = NumGenerator.generate(MAXNUMBER);
+            generatedNumber = NumGenerator.generate(maxNumber);
             System.out.println("gennr:"+generatedNumber);
             isFirstTime = false;
         }
@@ -64,8 +75,7 @@ public class NumGeneratorBusinessLogic {
             successfulGuess = true;
 
             // Starting a new thread to send the confirmation email in parallel
-            SendEmail sendEmail = new SendEmail("You won!", "Congratulations! \nYou guessed the right number after " +
-                    getNumGuesses() + " guesses!" , "echipadragon@gmail.com");
+            SendEmail sendEmail = new SendEmail("You won!", "Congratulations! \nYou guessed the right number after " + getNumGuesses() + " guesses!" , "echipadragon@gmail.com");
             Thread thread = new Thread(sendEmail);
             thread.start();
 
