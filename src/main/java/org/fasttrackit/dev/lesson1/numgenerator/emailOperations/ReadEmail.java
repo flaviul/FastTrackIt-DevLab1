@@ -5,7 +5,7 @@ import java.util.*;
 import javax.mail.*;
 
 public class ReadEmail implements Runnable{
-    private final String relevantSubject = "Number guessing try";
+    private final String relevantSubject = "My guess";
 
     public void run() {
         Properties props = new Properties();
